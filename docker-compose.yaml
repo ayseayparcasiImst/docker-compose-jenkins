@@ -1,13 +1,22 @@
-version: '3.8'
+#Son Kullanılan DockerCompose Dosyası
+version: '3.3'
+  
 services:
-  jenkins:
-    image: jenkins/jenkins:lts
-    privileged: true
-    user: root
-    ports:
-     - 8085:8085
-     - 50001:50001
-    container_name: jenkinss
-    volumes:
-     - /var/run/docker.sock:/var/run/docker.sock
-     - ./jenkinss_home:/var/jenkinss_home
+        
+  currency-exchange :
+     image: currency-exchange
+     restart: always
+     container_name: currency-exchange     
+     build:
+       context: ./CurrencyExchange
+       dockerfile: Dockerfile
+     ports:
+       - "8000:8000"       
+       - "1023:22"
+     networks:
+       - transfer-market
+     hostname: currency-exchange
+
+networks:
+  transfer-market:
+    driver: bridge
