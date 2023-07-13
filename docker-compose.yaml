@@ -5,9 +5,9 @@ services:
     privileged: true
     user: root
     ports:
-     - 8080:8080
-     - 50000:50000
-    container_name: jenkins
+     - 8085:8085
+     - 50001:50001
+    container_name: jenkinss
     volumes:
      - /var/run/docker.sock:/var/run/docker.sock
-     - ./jenkins_home:/var/jenkins_home
+     - ./jenkinss_home:/var/jenkinss_home
