@@ -32,18 +32,6 @@ pipeline {
               sh 'mvn clean install'
             }
         }
-        
-                stage("verify tooling") {
-             steps {
-                sh '''
-				
-                  docker version
-                  docker info
-                  docker compose version 
-
-                '''
-				}
-      }
 
         
           stage('docker-compose') {
