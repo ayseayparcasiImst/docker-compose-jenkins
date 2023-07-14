@@ -18,11 +18,13 @@ pipeline {
       }
 
        stage ('Build') {
+	        steps {
     git url: 'https://github.com/ayseayparcasiImst/docker-compose-jenkins.git'
     withMaven {
       sh "mvn clean verify"
     } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
   }
+       }
       
          stage('Build Maven'){
             steps{
