@@ -20,8 +20,8 @@ pipeline {
           stage('docker-compose') {
            steps {
 	      sh 'docker build -t abc/currency-exchange .'
-              sh 'docker compose ps'
-              sh "docker-compose up -d"
+
+              sh 'docker-compose up -d'
              
            }
        }
