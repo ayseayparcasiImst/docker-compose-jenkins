@@ -21,7 +21,7 @@ pipeline {
            steps {
 	      sh 'docker build -t abc/currency-exchange .'
 
-              sh 'docker-compose up -d'
+              sh 'docker-compose up currency-exchange.jar'
              
            }
        }
