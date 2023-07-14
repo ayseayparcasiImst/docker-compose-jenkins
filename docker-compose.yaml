@@ -1,0 +1,22 @@
+#Son Kullanılan DockerCompose Dosyası
+version: '3.3'
+  
+services:
+        
+  currency-exchange :
+     image: currency-exchange
+     restart: always
+     container_name: currency-exchange     
+     build:
+       context: ./CurrencyExchange
+       dockerfile: Dockerfile
+     ports:
+       - "8000:8000"       
+       - "1023:22"
+     networks:
+       - transfer-market
+     hostname: currency-exchange
+
+networks:
+  transfer-market:
+    driver: bridge
